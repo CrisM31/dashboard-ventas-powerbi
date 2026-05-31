@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard de Ventas — Power BI</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f0f2f5;
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1a1a2e, #16213e);
+      color: white;
+      padding: 24px 40px;
+      border-bottom: 3px solid #F2C811;
+    }
+
+    header h1 { font-size: 24px; font-weight: 700; }
+    header p  { font-size: 14px; opacity: 0.8; margin-top: 6px; }
+
+    .badges { margin-top: 10px; display: flex; gap: 8px; flex-wrap: wrap; }
+    .badge {
+      border-radius: 20px;
+      padding: 4px 12px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .badge-yellow { background: #F2C811; color: #1a1a2e; }
+    .badge-blue   { background: rgba(255,255,255,0.15); color: white; border: 1px solid rgba(255,255,255,0.3); }
+
+    .container { padding: 28px 40px; max-width: 1400px; margin: 0 auto; }
+
+    /* KPI cards */
+    .kpi-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .kpi {
+      background: white;
+      border-radius: 10px;
+      padding: 20px 24px;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+      border-left: 4px solid #F2C811;
+    }
+
+    .kpi .label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: #888;
+      font-weight: 600;
+    }
+
+    .kpi .value {
+      font-size: 26px;
+      font-weight: 800;
+      color: #1a1a2e;
+      margin-top: 6px;
+    }
+
+    .kpi .sub {
+      font-size: 12px;
+      color: #aaa;
+      margin-top: 4px;
+    }
+
+    /* Actions */
+    .actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .btn:hover { opacity: 0.85; }
+    .btn-primary   { background: #F2C811; color: #1a1a2e; }
+    .btn-secondary { background: white; color: #1a1a2e; border: 1px solid #ddd; }
+
+    .note {
+      font-size: 13px;
+      color: #888;
+      background: white;
+      border-radius: 8px;
+      padding: 10px 16px;
+      border-left: 3px solid #F2C811;
+    }
+
+    /* Tech pills */
+    .tech-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .tech-pill {
+      background: white;
+      border: 1px solid #e0e0e0;
+      border-radius: 20px;
+      padding: 6px 14px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #444;
+    }
+
+    /* Embed */
+    .embed-wrapper {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+      overflow: hidden;
+    }
+
+    .embed-wrapper iframe {
+      width: 100%;
+      height: 760px;
+      border: none;
+      display: block;
+    }
+
+    footer {
+      text-align: center;
+      padding: 24px;
+      font-size: 13px;
+      color: #aaa;
+    }
+    footer a { color: #1a1a2e; text-decoration: none; font-weight: 600; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>📊 Dashboard de Seguimiento de Ventas — Power BI</h1>
+    <p>Análisis de ventas 2019–2022 · Comparativa vs. Presupuesto · Modelado estrella con DAX</p>
+    <div class="badges">
+      <span class="badge badge-yellow">Power BI</span>
+      <span class="badge badge-blue">PostgreSQL</span>
+      <span class="badge badge-blue">DAX</span>
+      <span class="badge badge-blue">Power Query</span>
+      <span class="badge badge-blue">✅ Proyecto completado</span>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <!-- KPIs -->
+    <div class="kpi-row">
+      <div class="kpi">
+        <div class="label">Período analizado</div>
+        <div class="value">2019–2022</div>
+        <div class="sub">4 años de ventas</div>
+      </div>
+      <div class="kpi">
+        <div class="label">Tablas en el modelo</div>
+        <div class="value">7</div>
+        <div class="sub">2 hechos · 4 dimensiones · 1 calendario</div>
+      </div>
+      <div class="kpi">
+        <div class="label">Origen de datos</div>
+        <div class="value">PostgreSQL</div>
+        <div class="sub">Conexión directa a BD</div>
+      </div>
+      <div class="kpi">
+        <div class="label">Modelado</div>
+        <div class="value">Star Schema</div>
+        <div class="sub">Tabla calendario en DAX</div>
+      </div>
+      <div class="kpi">
+        <div class="label">Medidas DAX</div>
+        <div class="value">5+</div>
+        <div class="sub">Ventas, PPTO, variaciones</div>
+      </div>
+    </div>
+
+    <!-- Tech pills -->
+    <div class="tech-row">
+      <span class="tech-pill">⚙️ Power Query ETL</span>
+      <span class="tech-pill">📐 DAX Measures</span>
+      <span class="tech-pill">🔄 Unpivot / Append</span>
+      <span class="tech-pill">📅 Tabla Calendario</span>
+      <span class="tech-pill">🎨 Formato Condicional</span>
+      <span class="tech-pill">💬 Tooltips</span>
+      <span class="tech-pill">🔗 Relaciones Star Schema</span>
+      <span class="tech-pill">📊 CALCULATE</span>
+    </div>
+
+    <!-- Actions -->
+    <div class="actions">
+      <a class="btn btn-primary"
+         href="https://app.powerbi.com/view?r=eyJrIjoiYmJkMmQ3NzctMDg5NS00ZTA1LWIwODYtMDc5OTJjOTQ2OWIxIiwidCI6IjM2YjZkNDEzLTNiNmYtNDgxYS1iYzlkLTY2ODliNTExY2FmYSIsImMiOjR9&pageName=4601d1f28000453dae40"
+         target="_blank">
+        ⚡ Abrir en Power BI
+      </a>
+      <a class="btn btn-secondary"
+         href="https://github.com/CrisM31/dashboard-ventas-powerbi"
+         target="_blank">
+        📁 Ver repositorio
+      </a>
+      <div class="note">
+        💡 Para la mejor experiencia interactiva usa el botón "Abrir en Power BI".
+      </div>
+    </div>
+
+    <!-- Embed -->
+    <div class="embed-wrapper">
+      <iframe
+        src="https://app.powerbi.com/view?r=eyJrIjoiYmJkMmQ3NzctMDg5NS00ZTA1LWIwODYtMDc5OTJjOTQ2OWIxIiwidCI6IjM2YjZkNDEzLTNiNmYtNDgxYS1iYzlkLTY2ODliNTExY2FmYSIsImMiOjR9&pageName=4601d1f28000453dae40"
+        allowFullScreen="true"
+        loading="lazy">
+      </iframe>
+    </div>
+
+  </div>
+
+  <footer>
+    Proyecto desarrollado por
+    <a href="https://linkedin.com/in/cristobalmoyacantillana/" target="_blank">Cristóbal Moya</a>
+    · Data Analyst Portfolio
+  </footer>
+
+</body>
+</html>
