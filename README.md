@@ -17,7 +17,7 @@ Dashboard de Business Intelligence desarrollado para el seguimiento y control de
 
 ## 📊 Ver Dashboard
 
-👉 **[Abrir en Power BI](https://app.powerbi.com/view?r=eyJrIjoiYmJkMmQ3NzctMDg5NS00ZTA1LWIwODYtMDc5OTJjOTQ2OWIxIiwidCI6IjM2YjZkNDEzLTNiNmYtNDgxYS1iYzlkLTY2ODliNTExY2FmYSIsImMiOjR9&pageName=4601d1f28000453dae40)** 👈
+👉 **[Abrir Power BI](https://app.powerbi.com/view?r=eyJrIjoiYmJkMmQ3NzctMDg5NS00ZTA1LWIwODYtMDc5OTJjOTQ2OWIxIiwidCI6IjM2YjZkNDEzLTNiNmYtNDgxYS1iYzlkLTY2ODliNTExY2FmYSIsImMiOjR9&pageName=4601d1f28000453dae40)** 👈
 
 ---
 
