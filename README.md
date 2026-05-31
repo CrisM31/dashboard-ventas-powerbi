@@ -21,6 +21,12 @@ Dashboard de Business Intelligence desarrollado para el seguimiento y control de
 
 ---
 
+## 📸 Vista Previa
+
+![Dashboard Comercial](assets/dashboard-preview.png)
+
+---
+
 ## 🎯 Objetivos del Dashboard
 
 | Objetivo | Descripción |
@@ -147,3 +153,4 @@ El desafío más relevante fue la **normalización del presupuesto**: la tabla o
 ## 📫 Contacto
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/cristobalmoyacantillana/)
+
